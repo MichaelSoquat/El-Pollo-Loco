@@ -11,9 +11,9 @@ class World {
         new Cloud(),
     ];
     backgroundObjects = [
-        new BackgroundObject('img/5.Fondo/Capas/3.Fondo3/1.png')
+        new BackgroundObject('img/5.Fondo/Capas/3.Fondo3/1.png', 0)
     ]
-    
+
     canvas;
     ctx;
     constructor(canvas) {
@@ -28,21 +28,19 @@ class World {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         this.addToMap(this.character);
-        this.enemies.forEach(enemy => {
-            this.addToMap(enemy);
-        });
-
-        this.clouds.forEach(cloud => {
-            this.addToMap(cloud);
-        });
-
-
-
+        this.addObjectsToMap(this.clouds);
+        this.addObjectsToMap(this.enemies);
+        this.addObjectsToMap(this.backgroundObjects);
 
         //Draw wird immer wieder aufgerufen
         let self = this;
         requestAnimationFrame(function () {  //Funktion wird asynchron ein bisschen später ausgeführt, erst wenn gezeichnet ist drawImage
             self.draw();  //Wort this erkennt er hier nicht mehr, deswegen Variable!
+        });
+    }
+    addObjectsToMap(objects) {
+        objects.forEach(o => {
+            this.addToMap(o);
         });
     }
 
