@@ -1,11 +1,18 @@
+// VARIABLES
 let canvas;
-let world;
+let ctx;
+let character = new Character();
+let enemies = [
+    new Chicken(),
+    new Chicken(),
+    new Chicken()
+]
 
 
+// FIRST FUNCTION ONLOAD
 function init() {
     canvas = document.getElementById('canvas');
-    world = new World(canvas); //neues Objekt wird angelegt World! Canvas als Variable wird mitgegeben!
     ctx = canvas.getContext('2d');
-    console.log('My Charakter is', world)
-    
+
+    console.log(character);
 }
