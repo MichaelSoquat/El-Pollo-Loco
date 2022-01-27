@@ -1,24 +1,13 @@
 class World {
 
     character = new Character();
-    clouds = [
-        new Cloud
-    ]
-    enemies = [
-        new Chicken(),
-        new Chicken(),
-        new Chicken()
-    ];
-    backgroundObjects = [
-        new BackgroundObject('img/5.Fondo/Capas/5.cielo_1920-1080px.png', 0),
-        new BackgroundObject('img/5.Fondo/Capas/3.Fondo3/1.png', 0),
-        new BackgroundObject('img/5.Fondo/Capas/2.Fondo2/1.png', 0),
-        new BackgroundObject('img/5.Fondo/Capas/1.suelo-fondo1/1.png', 0)
-
-    ]
+    clouds = level1.clouds;
+    enemies = level1.enemies;
+    backgroundObjects = level1.backgroundObjects;
     canvas;
     ctx;
     keyboard;
+    camera_x = 0;
 
 
     constructor(canvas, keyboard) {
@@ -39,10 +28,14 @@ class World {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         let self = this;
 
+        this.ctx.translate(this.camera_x, 0);
+
         this.addObjectsToMap(this.backgroundObjects);
         this.addToMap(this.character);
         this.addObjectsToMap(this.enemies);
         this.addObjectsToMap(this.clouds);
+
+        this.ctx.translate(-this.camera_x, 0);
 
 
         // Draw() wird immer wieder aufgerufen!
