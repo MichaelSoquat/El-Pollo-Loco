@@ -12,6 +12,13 @@ function init() {
     console.log(world.character);
 }
 
+function startGame() {
+    let canvas = document.getElementById('canvas');
+    let startGame = document.getElementById('startGame');
+    startGame.classList.add('d-none');
+    canvas.classList.remove('d-none');
+}
+
 
 document.addEventListener('keydown', (e) => {
     if (e.keyCode == 39) {
