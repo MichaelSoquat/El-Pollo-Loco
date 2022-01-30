@@ -1,11 +1,4 @@
-class MovableObject {
-    x = 120;
-    y = 280;
-    img;
-    height = 150;
-    width = 100;
-    imageCache = {};
-    currentImage = 0;
+class MovableObject extends DrawableObject {
     speed = 0.15;
     otherDirection = false;
     speedY = 0;
@@ -25,44 +18,21 @@ class MovableObject {
     }
 
     isAboveGround() {
-        return this.y < 160;
-    }
-    //loadImage('img/test.png');
-    loadImage(path) {
-        this.img = new Image(); //this.img = document.getElementbyId('image')  <img id="image" src> Wäre dasselbe!!!
-        this.img.src = path;
-    }
-
-    loadImages(arr) {
-        arr.forEach((path) => {
-            let img = new Image();
-            img.src = path;
-            this.imageCache[path] = img;
-        });
-
-    }
-
-    draw(ctx) {
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-    }
-
-    drawFrame(ctx) {
-
-        if (this instanceof Character || this instanceof Chicken) {
-            ctx.beginPath();
-            ctx.lineWidth = '5';
-            ctx.strokeStyle = 'blue';
-            ctx.rect(this.x, this.y, this.width, this.height);
-            ctx.stroke();
+        if (this instanceof ThrowableObject) {
+            return true;
+        } else {
+            return this.y < 160;
         }
     }
 
-        // character.isColliding(chicken)
+
+
+    // character.isColliding(chicken)
     isColliding(mo) {
         return this.x + this.width > mo.x &&
-        this.y + this.height > mo.y &&
-        this.x < mo.x &&
-        this.y < mo.y + mo.height;
+            this.y + this.height > mo.y &&
+            this.x < mo.x &&
+            this.y < mo.y + mo.height;
     };
 
     hit() {
@@ -76,7 +46,7 @@ class MovableObject {
     };
     isHurt() {
         let timePassed = new Date().getTime() - this.lastHit;
-        timePassed = timePassed/1000;   
+        timePassed = timePassed / 1000;
         return timePassed < 0.5;
     }
 
