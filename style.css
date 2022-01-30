@@ -44,3 +44,10 @@ canvas {
     width: 30px;
     height: 30px;
 }
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    width: 720px;
+    align-items: center;
+}

@@ -1,5 +1,5 @@
 class ThrowableObject extends MovableObject {
-    
+    throwing_sound = new Audio('audio/glass.flac');
 
     constructor(x,y) {
         super().loadImage('img/6.botella/Rotación/Mesa de trabajo 1 copia 3.png');
@@ -11,6 +11,7 @@ class ThrowableObject extends MovableObject {
     }
 
     throw() {
+        this.throwing_sound.play();
         this.speedY = 30;
         this.speedX = 20;
         this.applyGravity();

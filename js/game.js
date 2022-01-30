@@ -2,13 +2,12 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
+let bg_sound = new Audio('audio/music.mp3');
 
 // FIRST FUNCTION ONLOAD
 function init() {
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
-
-
     console.log(world.character);
 }
 function fullScreen() {
@@ -19,7 +18,11 @@ function startGame() {
     let startGame = document.getElementById('startGame');
     startGame.classList.add('d-none');
     canvas.classList.remove('d-none');
+    bg_sound.play();
+    bg_sound.volume = 0.1;
 }
+
+    
 
 
 document.addEventListener('keydown', (e) => {

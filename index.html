@@ -29,11 +29,21 @@
 
 <body onload="init()">
 
-    <div class="header"><h1>El Pollo Loco</h1><img onclick="fullScreen()" class="fullscreenLogo" src="img/fullscreen.png"></div>
+    <div class="header">
+        <h1>El Pollo Loco</h1><img onclick="fullScreen()" class="fullscreenLogo" src="img/fullscreen.png">
+    </div>
     <div id="startGame"><img src="img/9.Intro _ Outro Image/Start Screen/Opción2.png" width="720" height="480">
         <button onclick="startGame()" class="styleButton">START GAME!</button>
     </div>
     <canvas id="canvas" width="720" height="480" class="d-none"></canvas>
+    <div class="keyboard">
+        <br>
+        <span>KEY DECLARATION:</span><br>
+        <span>"ARROW-LEFT" = MOVE-LEFT</span>
+        <span>"ARROW-RIGHT" = MOVE-RIGHT</span>
+        <span>"SPACE" = JUMP</span>
+        <span>"D" = THROW-BOTTLE</span>
+    </div>
 
 </body>
 
