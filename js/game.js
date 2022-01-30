@@ -11,9 +11,11 @@ function init() {
 
     console.log(world.character);
 }
-
+function fullScreen() {
+    canvas.requestFullscreen();
+}
 function startGame() {
-    let canvas = document.getElementById('canvas');
+    
     let startGame = document.getElementById('startGame');
     startGame.classList.add('d-none');
     canvas.classList.remove('d-none');

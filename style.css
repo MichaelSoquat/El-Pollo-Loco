@@ -12,7 +12,12 @@ body {
 canvas {
     background-color: black;
 }
-
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 720px;
+    align-items: center;
+}
 .d-none {
     display: none;
 }
@@ -33,4 +38,9 @@ canvas {
     bottom: 10px;
     right: 250px;
     opacity: 0.7;
+}
+
+.fullscreenLogo {
+    width: 30px;
+    height: 30px;
 }

@@ -29,9 +29,10 @@
 
 <body onload="init()">
 
-    <h1>El Pollo Loco</h1>
-    <div id="startGame"><img src="img/9.Intro _ Outro Image/Start Screen/Opción2.png" width ="720" height ="480">
-    <button onclick="startGame()" class="styleButton">START GAME!</button></div>
+    <div class="header"><h1>El Pollo Loco</h1><img onclick="fullScreen()" class="fullscreenLogo" src="img/fullscreen.png"></div>
+    <div id="startGame"><img src="img/9.Intro _ Outro Image/Start Screen/Opción2.png" width="720" height="480">
+        <button onclick="startGame()" class="styleButton">START GAME!</button>
+    </div>
     <canvas id="canvas" width="720" height="480" class="d-none"></canvas>
 
 </body>
