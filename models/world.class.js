@@ -9,8 +9,10 @@ class World {
     statusBar = new StatusBar();
     bottlesBar = new BottlesBar();
     coinsBar = new CoinsBar();
+    endbossBar = new EndbossBar();
+    endboss = new Endboss();
     throwableObject = [];
-
+    energyBoss = 100;
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -59,9 +61,21 @@ class World {
         this.level.coins.forEach((coin) => {
             if (this.character.isColliding(coin)) {
                 this.character.collectCoins();
-            this.coinsBar.setPercentage(this.character.coins);
-            this.level.coins.splice(this.level.coins.indexOf(coin),1);
-        }
+                this.coinsBar.setPercentage(this.character.coins);
+                this.level.coins.splice(this.level.coins.indexOf(coin), 1);
+            }
+
+            this.throwableObject.forEach((bottle) => {
+                if (this.level.enemies[8].isColliding(bottle)) {
+                    this.energyBoss -= 1;
+                    console.log(this.energyBoss);
+                    this.endbossBar.setPercentage(this.energyBoss);
+                    
+                } if (this.energyBoss <= 0) {
+                    this.endboss.dead();
+                }
+            })
+
         });
     }
 
@@ -78,12 +92,13 @@ class World {
         this.addToMap(this.statusBar);
         this.addToMap(this.bottlesBar);
         this.addToMap(this.coinsBar);
+        
 
         this.ctx.translate(this.camera_x, 0);
 
         this.addToMap(this.character);
         this.addObjectsToMap(this.level.enemies);
-
+        this.addToMap(this.endbossBar);
         this.addObjectsToMap(this.level.bottles);
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.throwableObject);
