@@ -1,18 +1,18 @@
 class BottlesBar extends DrawableObject {
-    IMAGESBOTTLE = [
-        'img/7.Marcadores/Barra/Marcador_botella/Azul/0_.png',
-        'img/7.Marcadores/Barra/Marcador_botella/Azul/20_.png',
-        'img/7.Marcadores/Barra/Marcador_botella/Azul/40_.png',
-        'img/7.Marcadores/Barra/Marcador_botella/Azul/60_.png',
-        'img/7.Marcadores/Barra/Marcador_botella/Azul/80_.png',
-        'img/7.Marcadores/Barra/Marcador_botella/Azul/100_.png'
+    IMAGES = [
+        'img/7.Marcadores/Barra/Marcador_botella/Azul/0.png',
+        'img/7.Marcadores/Barra/Marcador_botella/Azul/20.png',
+        'img/7.Marcadores/Barra/Marcador_botella/Azul/40.png',
+        'img/7.Marcadores/Barra/Marcador_botella/Azul/60.png',
+        'img/7.Marcadores/Barra/Marcador_botella/Azul/80.png',
+        'img/7.Marcadores/Barra/Marcador_botella/Azul/100.png'
     ];
 
     percentage = 0;
 
     constructor() {
         super();
-        this.loadImages(this.IMAGESBOTTLE);
+        this.loadImages(this.IMAGES);
         this.x = 40;
         this.y = 50;
         this.width = 200;
@@ -23,7 +23,7 @@ class BottlesBar extends DrawableObject {
 
     setPercentage(percentage) {
         this.percentage = percentage;
-        let path = this.IMAGESBOTTLE [this.resolveImageIndex()];
+        let path = this.IMAGES[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
     resolveImageIndex() {

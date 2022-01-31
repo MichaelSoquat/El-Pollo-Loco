@@ -52,7 +52,11 @@ class World {
                 this.character.collect();
             this.bottlesBar.setPercentage(this.character.bottles)
         });
-
+        this.level.coins.forEach((coin) => {
+            if (this.character.isColliding(coin))
+                this.character.collectCoins();
+            this.coinsBar.setPercentage(this.character.coins)
+        });
     }
 
 
