@@ -41,6 +41,8 @@ class MovableObject extends DrawableObject {
         this.bottles += 10;
         if (this.bottles > 100) {
             this.bottles = 100;
+        } if(this.bottles < 0) {
+            this.bottles = 0;
         }
     }
 
