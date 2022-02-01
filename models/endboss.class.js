@@ -1,8 +1,10 @@
+
 class Endboss extends MovableObject {
 
     height = 400;
     y = 60;
     width = 250;
+    energyBoss = 100;
 
 
     IMAGES_WALKING = [
@@ -16,9 +18,16 @@ class Endboss extends MovableObject {
         'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/1.Alerta/G12.png'
     ];
 
+    IMAGES_DEAD = [
+        'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/4.Muerte/G24.png',
+        'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/4.Muerte/G25.png',
+        'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/4.Muerte/G26.png'
+    ]
+
     constructor() {
         super().loadImage(this.IMAGES_WALKING[0]);
         this.loadImages(this.IMAGES_WALKING);
+        this.loadImages(this.IMAGES_DEAD);
         this.x = 3200;
         this.animate();
     }
@@ -26,9 +35,16 @@ class Endboss extends MovableObject {
     animate() {
 
         setInterval(() => {
-            this.playAnimation(this.IMAGES_WALKING);
+            if (this.energyBoss > 0) {
+                this.playAnimation(this.IMAGES_WALKING);
+            } else { this.playAnimation(this.IMAGES_DEAD) }
         }, 200);
 
+
     };
+
+
 }
+
+
 

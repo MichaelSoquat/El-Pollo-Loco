@@ -7,7 +7,6 @@ const level1 = new Level([
     new Chicken(),
     new Chicken(),
     new Chicken(),
-    new Endboss()
 ],
     [
         new Cloud('img/5.Fondo/Capas/4.nubes/1.png', 319),

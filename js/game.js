@@ -9,6 +9,7 @@ function init() {
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
     console.log(world.character);
+    console.log(world.endboss);
 }
 function fullScreen() {
     canvas.requestFullscreen();
