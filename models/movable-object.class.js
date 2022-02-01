@@ -7,6 +7,9 @@ class MovableObject extends DrawableObject {
     bottles = 0;
     coins = 0;
     lastHit = 0;
+    deadTime = 0;
+    dead = false;
+    timeAfterDeath = 0;
 
     applyGravity() {
         setInterval(() => {
@@ -22,7 +25,7 @@ class MovableObject extends DrawableObject {
         if (this instanceof ThrowableObject) {
             return true;
         } else {
-            return this.y < 160;
+            return this.y < 140;
         }
     }
 
@@ -35,19 +38,19 @@ class MovableObject extends DrawableObject {
             this.x < mo.x &&
             this.y < mo.y + mo.height;
     };
-    
-    
+
+
     collect() {
         this.bottles += 10;
         if (this.bottles > 100) {
             this.bottles = 100;
-        } if(this.bottles < 0) {
+        } if (this.bottles < 0) {
             this.bottles = 0;
         }
     }
 
     collectCoins() {
-        this.coins +=10;
+        this.coins += 10;
         if (this.coins > 100) {
             this.coins = 100;
         }
@@ -55,21 +58,35 @@ class MovableObject extends DrawableObject {
 
     hit() {
         this.energy -= 5;
-        if (this.energy < 0) {
+        if (this.energy <= 0) {
             this.energy = 0;
+            this.dead = true;
         }
         else {
             this.lastHit = new Date().getTime();
         }
     };
     isHurt() {
+        
         let timePassed = new Date().getTime() - this.lastHit;
         timePassed = timePassed / 1000;
         return timePassed < 0.5;
     }
 
     isDead() {
+
         return this.energy == 0;
+
+    };
+
+    howLongDead() {
+        if(this.dead = true) {
+            this.deadTime = new Date().getTime();
+            console.log(this.deadTime);
+        }
+        timeAfterDeath = new Date().getTime() - this.deadTime;
+        timeAfterDeath = timeAfterDeath / 1000;
+        return timeAfterDeath;
     };
 
     moveRight() {

@@ -1,7 +1,7 @@
 class Character extends MovableObject {
 
     height = 280;
-    y = 80;
+    y = 0;
     speed = 10;
     IMAGES_WALKING = [
         'img/2.Secuencias_Personaje-Pepe-corrección/2.Secuencia_caminata/W-21.png',
@@ -35,6 +35,7 @@ class Character extends MovableObject {
         'img/2.Secuencias_Personaje-Pepe-corrección/5.Muerte/D-56.png',
         'img/2.Secuencias_Personaje-Pepe-corrección/5.Muerte/D-57.png'
     ];
+    
 
     IMAGES_HURT = [
         'img/2.Secuencias_Personaje-Pepe-corrección/4.Herido/H-41.png',
@@ -91,7 +92,8 @@ class Character extends MovableObject {
 
             if (this.isDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
-            } else if (this.isHurt()) {
+            }
+            else if (this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
             }
 
@@ -106,7 +108,7 @@ class Character extends MovableObject {
                     this.playAnimation(this.IMAGES_WALKING);
                 }
             }
-        }, 50);
+        }, 70);
 
     };
 

@@ -3,8 +3,8 @@ Musik + Sounds z.b. jump                   ---
 Coins einsammeln                           ---
 Flaschen einsammeln                        ---
 Flaschen nur werfen, wenn vorhanden        ---
-Collision mit Endgegner
-Endgegner besiegen
-Game-Over screen                           
+Collision mit Endgegner                    ---
+Endgegner besiegen                         ---
+Game-Over screen                           ---    
 Fullscreen canvas.requestFullscreen();     ---
 Erklärung welche Tasten usw.               ---
